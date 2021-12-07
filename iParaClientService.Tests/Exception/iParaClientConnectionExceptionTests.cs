@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace iParaClientService.Tests.Exception
 {
     [TestClass]
-    public class iParaClientServiceConnectionExceptionTests
+    public class iParaClientConnectionExceptionTests
     {
         [TestMethod]
         [DataRow("Test hata")]
@@ -15,7 +15,7 @@ namespace iParaClientService.Tests.Exception
             //Arrange
 
             //Act
-            var exceptionMessage = new iParaClientServiceConnectionException(message);
+            var exceptionMessage = new iParaClientConnectionException(message);
 
             //Assert
             exceptionMessage.Message.Should().Be(message);

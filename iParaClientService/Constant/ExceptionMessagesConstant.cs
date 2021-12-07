@@ -18,7 +18,7 @@ namespace iParaClientService.Constant
 
         }
 
-        public static class iParaClientServiceConnectionExceptionMessages
+        public static class iParaClientConnectionExceptionMessages
         {
 
             public const string ParaConnectionSettings = "ParaConnectionSettings bilgisi null veya empty olamaz";

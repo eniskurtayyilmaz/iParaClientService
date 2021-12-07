@@ -44,12 +44,12 @@
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
-    <Compile Include="Exception\iParaClientServiceConnectionException.cs" />
+    <Compile Include="Exception\iParaClientConnectionException.cs" />
     <Compile Include="Exception\iParaConnectionSettingsException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
     <Compile Include="Model\iParaConnectionSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\iParaClientServiceConnection.cs" />
+    <Compile Include="Service\iParaClientConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapter\" />

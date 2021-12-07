@@ -9,14 +9,14 @@ using iParaClientService.Model;
 
 namespace iParaClientService.Service
 {
-    public class iParaClientServiceConnection
+    public class iParaClientConnection
     {
         private readonly iParaConnectionSettings _paraConnectionSettings;
 
-        public iParaClientServiceConnection(iParaConnectionSettings paraConnectionSettings)
+        public iParaClientConnection(iParaConnectionSettings paraConnectionSettings)
         {
-            _paraConnectionSettings = paraConnectionSettings ?? throw new iParaClientServiceConnectionException(ExceptionMessagesConstant
-                .iParaClientServiceConnectionExceptionMessages.ParaConnectionSettings);
+            _paraConnectionSettings = paraConnectionSettings ?? throw new iParaClientConnectionException(ExceptionMessagesConstant
+                .iParaClientConnectionExceptionMessages.ParaConnectionSettings);
         }
     }
 }
