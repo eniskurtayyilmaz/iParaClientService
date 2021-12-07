@@ -8,21 +8,15 @@ using iParaClientService.Exception;
 
 namespace iParaClientService.Model
 {
-    public enum IParaConnectionMode
-    {
-        Test = 1,
-        Production = 2
-    }
-
-    public sealed class IParaConnectionSettings
+    public sealed class iParaConnectionSettings
     {
         public string BaseUrl { get; internal set; }
         public string PublicKey { get; internal set; }
         public string PrivateKey { get; internal set; }
-        public IParaConnectionMode Mode { get; internal set; }
+        public iParaConnectionMode Mode { get; internal set; }
         public string Version { get; internal set; }
 
-        public IParaConnectionSettings(string baseUrl, string publicKey, string privateKey, IParaConnectionMode mode, string version)
+        public iParaConnectionSettings(string baseUrl, string publicKey, string privateKey, iParaConnectionMode mode, string version)
         {
             this.SetBaseUrl(baseUrl);
             this.SetPublicKey(publicKey);
@@ -35,7 +29,7 @@ namespace iParaClientService.Model
         {
             if (string.IsNullOrEmpty(baseUrl) || string.IsNullOrWhiteSpace(baseUrl))
             {
-                throw new IParaConnectionSettingsException(ExceptionMessagesConstant.BaseUrlNotBeNullOrEmpty);
+                throw new iParaConnectionSettingsException(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.BaseUrlNotBeNullOrEmpty);
             }
 
             this.BaseUrl = baseUrl;
@@ -45,7 +39,7 @@ namespace iParaClientService.Model
         {
             if (string.IsNullOrEmpty(publicKey) || string.IsNullOrWhiteSpace(publicKey))
             {
-                throw new IParaConnectionSettingsException(ExceptionMessagesConstant.PublicKeyNotBeNullOrEmpty);
+                throw new iParaConnectionSettingsException(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.PublicKeyNotBeNullOrEmpty);
             }
 
             this.PublicKey = publicKey;
@@ -55,13 +49,13 @@ namespace iParaClientService.Model
         {
             if (string.IsNullOrEmpty(privateKey) || string.IsNullOrWhiteSpace(privateKey))
             {
-                throw new IParaConnectionSettingsException(ExceptionMessagesConstant.PrivateKeyNotBeNullOrEmpty);
+                throw new iParaConnectionSettingsException(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.PrivateKeyNotBeNullOrEmpty);
             }
 
             this.PrivateKey = privateKey;
         }
 
-        public void SetMode(IParaConnectionMode mode)
+        public void SetMode(iParaConnectionMode mode)
         {
             this.Mode = mode;
         }
@@ -70,7 +64,7 @@ namespace iParaClientService.Model
         {
             if (string.IsNullOrEmpty(version) || string.IsNullOrWhiteSpace(version))
             {
-                throw new IParaConnectionSettingsException(ExceptionMessagesConstant.VersionNotBeNullOrEmpty);
+                throw new iParaConnectionSettingsException(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.VersionNotBeNullOrEmpty);
             }
 
             this.Version = version;

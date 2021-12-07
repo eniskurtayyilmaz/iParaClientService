@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace iParaClientService.Exception
 {
-    public class IParaConnectionSettingsException : System.Exception
+    public class iParaConnectionSettingsException : System.Exception
     {
-        public IParaConnectionSettingsException(string exceptionMessage) : base(exceptionMessage)
+        public iParaConnectionSettingsException(string exceptionMessage) : base(exceptionMessage)
         {
 
         }

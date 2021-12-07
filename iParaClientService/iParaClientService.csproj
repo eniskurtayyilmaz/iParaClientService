@@ -42,17 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
-    <Compile Include="Domain\AbstractIParaRequestBase.cs" />
-    <Compile Include="Domain\AbstractIParaResponseBase.cs" />
-    <Compile Include="Exception\IParaConnectionSettingsException.cs" />
-    <Compile Include="Model\IParaConnectionSettings.cs" />
+    <Compile Include="Domain\AbstractiParaRequestBase.cs" />
+    <Compile Include="Domain\AbstractiParaResponseBase.cs" />
+    <Compile Include="Exception\iParaClientServiceConnectionException.cs" />
+    <Compile Include="Exception\iParaConnectionSettingsException.cs" />
+    <Compile Include="Model\iParaConnectionMode.cs" />
+    <Compile Include="Model\iParaConnectionSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\iParaClientServiceConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapter\" />
     <Folder Include="Model\Request\" />
     <Folder Include="Model\Response\" />
-    <Folder Include="Service\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -58,8 +58,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exception\IParaConnectionSettingsExceptionTests.cs" />
-    <Compile Include="Model\IParaConnectionSettingsTests.cs" />
+    <Compile Include="Exception\iParaClientServiceConnectionExceptionTests.cs" />
+    <Compile Include="Exception\iParaConnectionSettingsExceptionTests.cs" />
+    <Compile Include="Model\iParaConnectionSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

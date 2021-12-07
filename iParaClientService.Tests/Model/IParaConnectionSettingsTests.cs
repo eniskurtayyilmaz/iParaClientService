@@ -12,7 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace iParaClientService.Tests.Model
 {
     [TestClass]
-    public class IParaConnectionSettingsTests
+    public class iParaConnectionSettingsTests
     {
         #region BaseUrl
         [TestMethod]
@@ -24,14 +24,14 @@ namespace iParaClientService.Tests.Model
             string baseUrl = parameter;
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = Assert.ThrowsException<IParaConnectionSettingsException>(() => new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
+            var result = Assert.ThrowsException<iParaConnectionSettingsException>(() => new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
 
             //Assert
-            result.Message.Should().Be(ExceptionMessagesConstant.BaseUrlNotBeNullOrEmpty);
+            result.Message.Should().Be(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.BaseUrlNotBeNullOrEmpty);
         }
 
         [TestMethod]
@@ -43,11 +43,11 @@ namespace iParaClientService.Tests.Model
             string baseUrl = parameter;
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
+            var result = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
             //Assert
             result.BaseUrl.Should().Be(baseUrl);
@@ -64,14 +64,14 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = parameter;
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = Assert.ThrowsException<IParaConnectionSettingsException>(() => new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
+            var result = Assert.ThrowsException<iParaConnectionSettingsException>(() => new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
 
             //Assert
-            result.Message.Should().Be(ExceptionMessagesConstant.PublicKeyNotBeNullOrEmpty);
+            result.Message.Should().Be(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.PublicKeyNotBeNullOrEmpty);
         }
 
         [TestMethod]
@@ -83,11 +83,11 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
+            var result = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
             //Assert
             result.PublicKey.Should().Be(publicKey);
@@ -104,14 +104,14 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = parameter;
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = Assert.ThrowsException<IParaConnectionSettingsException>(() => new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
+            var result = Assert.ThrowsException<iParaConnectionSettingsException>(() => new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
 
             //Assert
-            result.Message.Should().Be(ExceptionMessagesConstant.PrivateKeyNotBeNullOrEmpty);
+            result.Message.Should().Be(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.PrivateKeyNotBeNullOrEmpty);
         }
 
         [TestMethod]
@@ -123,11 +123,11 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = parameter;
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
+            var result = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
             //Assert
             result.PrivateKey.Should().Be(privateKey);
@@ -143,11 +143,11 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = "version";
 
             //Action
-            var result = new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
+            var result = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
             //Assert
             result.Mode.Should().Be(mode);
@@ -166,14 +166,14 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = parameter;
 
             //Action
-            var result = Assert.ThrowsException<IParaConnectionSettingsException>(() => new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
+            var result = Assert.ThrowsException<iParaConnectionSettingsException>(() => new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version));
 
             //Assert
-            result.Message.Should().Be(ExceptionMessagesConstant.VersionNotBeNullOrEmpty);
+            result.Message.Should().Be(ExceptionMessagesConstant.iParaConnectionSettingsExceptionMessages.VersionNotBeNullOrEmpty);
         }
 
         [TestMethod]
@@ -185,11 +185,11 @@ namespace iParaClientService.Tests.Model
             string baseUrl = "baseUrl";
             string publicKey = "publicKey";
             string privateKey = "privateKey";
-            IParaConnectionMode mode = IParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Test;
             string version = parameter;
 
             //Action
-            var result = new IParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
+            var result = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
             //Assert
             result.Version.Should().Be(version);

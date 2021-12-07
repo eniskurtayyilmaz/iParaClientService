@@ -2,7 +2,7 @@
 
 namespace iParaClientService.Domain
 {
-    public abstract class AbstractIParaResponseBase
+    public abstract class AbstractiParaResponseBase
     {
         [XmlElement("result")]
         public string Result { get; set; }

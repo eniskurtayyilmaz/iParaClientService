@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using iParaClientService.Exception;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace iParaClientService.Tests.Exception
 {
     [TestClass]
-    public class iParaConnectionSettingsExceptionTests
+    public class iParaClientServiceConnectionExceptionTests
     {
         [TestMethod]
         [DataRow("Test hata")]
@@ -20,7 +15,7 @@ namespace iParaClientService.Tests.Exception
             //Arrange
 
             //Act
-            var exceptionMessage = new iParaConnectionSettingsException(message);
+            var exceptionMessage = new iParaClientServiceConnectionException(message);
 
             //Assert
             exceptionMessage.Message.Should().Be(message);
