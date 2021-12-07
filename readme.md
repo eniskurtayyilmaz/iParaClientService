@@ -1,0 +1,1 @@
+![example workflow](https://github.com/eniskurtayyilmaz/iParaClientService/actions/workflows/main.yml/badge.svg)
