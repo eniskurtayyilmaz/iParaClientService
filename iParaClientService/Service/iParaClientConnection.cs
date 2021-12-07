@@ -9,7 +9,7 @@ using iParaClientService.Model;
 
 namespace iParaClientService.Service
 {
-    public class iParaClientConnection
+    public class iParaClientConnection : IDisposable
     {
         private readonly iParaConnectionSettings _paraConnectionSettings;
 
@@ -17,6 +17,12 @@ namespace iParaClientService.Service
         {
             _paraConnectionSettings = paraConnectionSettings ?? throw new iParaClientConnectionException(ExceptionMessagesConstant
                 .iParaClientConnectionExceptionMessages.ParaConnectionSettings);
+        }
+        
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }
