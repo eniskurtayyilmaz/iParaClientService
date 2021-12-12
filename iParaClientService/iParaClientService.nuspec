@@ -15,4 +15,7 @@
     <copyright>$copyright$</copyright>
     <tags>iPara integration</tags>
   </metadata>
+  <files>
+    <file src="..\readme.md" target="docs\" />
+  </files>
 </package>
