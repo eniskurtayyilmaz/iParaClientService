@@ -21,7 +21,6 @@ namespace iParaClientService.Tests.Adapter
     public class iParaLinkPaymentAdapterTests
     {
         private Mock<iParaClientConnection> _mockIParaClientConnection;
-        private iParaConnectionSettings _iParaConnectionSettings;
 
         [TestInitialize]
         public void Setup()
@@ -33,9 +32,11 @@ namespace iParaClientService.Tests.Adapter
             string version = "version";
 
             //Action
-            this._iParaConnectionSettings = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
-            this._mockIParaClientConnection = new Mock<iParaClientConnection>(_iParaConnectionSettings);
+            this._mockIParaClientConnection = new Mock<iParaClientConnection>(new object[]
+            {
+                baseUrl, publicKey, privateKey, mode, version
+            });
         }
 
         [TestMethod]
@@ -60,7 +61,7 @@ namespace iParaClientService.Tests.Adapter
 
             //Assert    
             result.Message.Should()
-                .Be(ExceptionMessagesConstant.iParaClientConnectionExceptionMessages.ParaClientConnection);
+                .Be(ExceptionMessagesConstant.iParaClientConnectionExceptionMessages.ParaClientConnectionNullOrEmpty);
         }
 
         [TestMethod]
@@ -69,7 +70,7 @@ namespace iParaClientService.Tests.Adapter
             //Arrange
             var model = new Fixture().Create<iParaLinkPaymentCreateRequest>();
             var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
-            var hashString = HashStringBuilderHelpers.GetHashString(_iParaConnectionSettings.PrivateKey, model.Name,
+            var hashString = HashStringBuilderHelpers.GetHashString(_mockIParaClientConnection.Object.PrivateKey, model.Name,
                 model.Surname, model.Email, model.Amount.ToString(),
                 model.ClientIp, HeaderHelpers.GetTransactionDateString());
 

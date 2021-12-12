@@ -28,6 +28,8 @@ namespace iParaClientService.Adapter
         public override iParaLinkPaymentCreateResponse Execute(iParaLinkPaymentCreateRequest model)
         {
             var hashString = this.GetHashString(model);
+            //iParaLinkPaymentCreateResponse
+            //    result = _iParaClientConnection.CallRequest<iParaLinkPaymentCreateResponse>();
 
             return new iParaLinkPaymentCreateResponse()
             {

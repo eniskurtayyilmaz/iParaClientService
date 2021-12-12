@@ -43,16 +43,14 @@
   <ItemGroup>
     <Compile Include="Adapter\AbstractIParaExecuter.cs" />
     <Compile Include="Adapter\IParaExecuter.cs" />
-    <Compile Include="Adapter\iParaLinkPaymentExecuter.cs" />
+    <Compile Include="Adapter\iParaLinkPaymentAdapter.cs" />
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
     <Compile Include="Constant\HeaderConstant.cs" />
     <Compile Include="Constant\RequestUrlConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
     <Compile Include="Exception\iParaClientConnectionException.cs" />
-    <Compile Include="Exception\iParaConnectionSettingsException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
-    <Compile Include="Model\iParaConnectionSettings.cs" />
     <Compile Include="Model\Request\iParaLinkPaymentCreateRequest.cs" />
     <Compile Include="Model\Response\iParaLinkPaymentCreateResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,7 +13,7 @@ namespace iParaClientService.Adapter
         protected AbstractIParaExecuter(iParaClientConnection iParaClientConnection)
         {
             _iParaClientConnection = iParaClientConnection ?? throw new iParaClientConnectionException(ExceptionMessagesConstant
-                .iParaClientConnectionExceptionMessages.ParaClientConnection);
+                .iParaClientConnectionExceptionMessages.ParaClientConnectionNullOrEmpty);
         }
         public abstract TResponse Execute(TRequest model);
         public abstract string GetRequestUrl { get; }  

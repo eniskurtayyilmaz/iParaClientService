@@ -78,18 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\iParaLinkPaymentAdapterTests.cs" />
-    <Compile Include="Exception\iParaClientConnectionExceptionTests.cs" />
     <Compile Include="Exception\iParaConnectionSettingsExceptionTests.cs" />
     <Compile Include="Header\HeaderConstantTests.cs" />
     <Compile Include="Header\RequestUrlConstantTests.cs" />
-    <Compile Include="Model\iParaConnectionSettingsTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\iParaClientConnectionTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iParaClientService\iParaClientService.csproj">
       <Project>{0F6E96F0-15D7-4837-9B90-96EA1075CF32}</Project>

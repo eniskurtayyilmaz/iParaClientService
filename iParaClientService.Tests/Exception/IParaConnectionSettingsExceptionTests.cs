@@ -20,7 +20,7 @@ namespace iParaClientService.Tests.Exception
             //Arrange
 
             //Act
-            var exceptionMessage = new iParaConnectionSettingsException(message);
+            var exceptionMessage = new iParaClientConnectionException(message);
 
             //Assert
             exceptionMessage.Message.Should().Be(message);
