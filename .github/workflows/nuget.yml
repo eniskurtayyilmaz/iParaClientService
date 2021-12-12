@@ -43,7 +43,7 @@ jobs:
       uses: battila7/get-version-action@v2
 
     - name: 'Pack project'
-      run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -Version ${{ github.event.ref }} -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
 
     - name: 'Push package'
       run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg  ${{ secrets.NUGET_AUTH_TOKEN }} -Source ${{ env.NUGET_SOURCE_URL }}
