@@ -133,8 +133,7 @@ namespace iParaClientService.Tests.Model
             result.PrivateKey.Should().Be(privateKey);
         }
         #endregion
-
-
+        
         #region Mode
         [TestMethod]
         public void When_Mode_Is_Valid_Should_Not_Have_Exception()
@@ -153,8 +152,6 @@ namespace iParaClientService.Tests.Model
             result.Mode.Should().Be(mode);
         }
         #endregion
-
-
 
         #region Version
         [TestMethod]
