@@ -39,6 +39,19 @@ namespace iParaClientService.Tests.Adapter
             });
         }
 
+
+
+        [TestMethod]
+        public void AcceptType_Must_Valid_And_Equal()
+        {
+            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
+
+            var result = linkPaymentAdapter.AcceptType;
+
+            result.Should().Be(HeaderConstant.ApplicationJson);
+        }
+
+
         [TestMethod]
         public void Request_Url_Must_Valid_And_Equal()
         {
@@ -46,7 +59,7 @@ namespace iParaClientService.Tests.Adapter
 
             var result = linkPaymentAdapter.GetRequestUrl;
 
-            result.Should().Be(RequestUrlConstant.LinkPaymentCreate);
+            result.Should().Be(_mockIParaClientConnection.Object.BaseUrl + RequestUrlConstant.LinkPaymentCreate);
         }
 
         [TestMethod]
@@ -79,21 +92,6 @@ namespace iParaClientService.Tests.Adapter
 
             //Assert
             result.Should().Be(hashString);
-        }
-
-        [TestMethod]
-        public void Can_Call_Execute_As_LinkPayment()
-        {
-            //Arrange
-            var model = new Fixture().Create<iParaLinkPaymentCreateRequest>();
-            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
-
-            //Act
-            var result = linkPaymentAdapter.Execute(model);
-
-            //Assert
-            result.Should().BeOfType<iParaLinkPaymentCreateResponse>();
-            result.ErrorCode.Should().Be("errorCode");
         }
     }
 }
