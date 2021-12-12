@@ -1,7 +1,8 @@
 name: "Deploy to NuGet"
 
 on:
-  main:
+  push:
+    branches: [ main ]
     tags:
     - 'v*'
 
