@@ -64,6 +64,11 @@ namespace iParaClientService.Service
             this.Mode = mode;
         }
 
+        public string GetMode()
+        {
+            return Mode == iParaConnectionMode.Production ? "P" : "T";
+        }
+
         public void SetVersion(string version)
         {
             if (string.IsNullOrEmpty(version) || string.IsNullOrWhiteSpace(version))

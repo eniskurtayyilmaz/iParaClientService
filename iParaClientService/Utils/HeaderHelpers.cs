@@ -42,7 +42,7 @@ namespace iParaClientService.Utils
     {
         public static string GetHashString(params string[] parameters)
         {
-            string hashString = String.Empty;
+            string hashString = "";
 
             foreach (var parameter in parameters)
             {

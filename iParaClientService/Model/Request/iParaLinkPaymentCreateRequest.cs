@@ -10,6 +10,17 @@ using iParaClientService.Service;
 
 namespace iParaClientService.Model.Request
 {
+    public enum CommissionType
+    {
+        /// <summary>
+        /// Satıcı
+        /// </summary>
+        Seller = 1,
+        /// <summary>
+        /// Müşteri
+        /// </summary>
+        Dealer = 2
+    }
   
     public class iParaLinkPaymentCreateRequest : AbstractiParaRequestBase
     {
@@ -33,7 +44,7 @@ namespace iParaClientService.Model.Request
 
         public bool SendEmail { get; set; }
 
-        public string CommissionType { get; set; }
+        public CommissionType CommissionType { get; set; }
 
         public string ClientIp { get; set; }
     }
