@@ -9,13 +9,9 @@
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/eniskurtayyilmaz/iParaClientService</projectUrl>
-	<readme>readme.md</readme>
     <description>iPara integration</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Summary of changes made in this release of the package. More information https://github.com/eniskurtayyilmaz/iParaClientService</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>iPara integration</tags>
   </metadata>
-  <files>
-    <file src="..\readme.md" target="docs\" />
-  </files>
 </package>
