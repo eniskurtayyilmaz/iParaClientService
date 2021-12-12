@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iParaClientService", "iPara
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iParaClientService.Tests", "iParaClientService.Tests\iParaClientService.Tests.csproj", "{35B976AA-143E-47F1-AEC9-B4623AA1DAAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iParaClientService.Integration.Tests", "iParaClientService.Integration.Tests\iParaClientService.Integration.Tests.csproj", "{7251DDFE-C6A0-4102-84B7-48FDF1502429}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{35B976AA-143E-47F1-AEC9-B4623AA1DAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35B976AA-143E-47F1-AEC9-B4623AA1DAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35B976AA-143E-47F1-AEC9-B4623AA1DAAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7251DDFE-C6A0-4102-84B7-48FDF1502429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7251DDFE-C6A0-4102-84B7-48FDF1502429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7251DDFE-C6A0-4102-84B7-48FDF1502429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7251DDFE-C6A0-4102-84B7-48FDF1502429}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

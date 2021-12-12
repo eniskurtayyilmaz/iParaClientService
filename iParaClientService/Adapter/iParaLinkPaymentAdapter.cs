@@ -17,23 +17,27 @@ namespace iParaClientService.Adapter
         {
             _iParaClientConnection = iParaClientConnection;
         }
-        public override string GetRequestUrl => RequestUrlConstant.LinkPaymentCreate;
+        public override string GetRequestUrl => _iParaClientConnection.BaseUrl + RequestUrlConstant.LinkPaymentCreate;
         public override string GetHashString(iParaLinkPaymentCreateRequest model)
         {
             return HashStringBuilderHelpers.GetHashString(_iParaClientConnection.PrivateKey, model.Name,
                                                           model.Surname, model.Email, model.Amount.ToString(),
                                                           model.ClientIp, HeaderHelpers.GetTransactionDateString());
         }
-
+        public override string AcceptType => HeaderConstant.ApplicationJson;
         public override iParaLinkPaymentCreateResponse Execute(iParaLinkPaymentCreateRequest model)
         {
+            model.Mode = _iParaClientConnection.GetMode();
             var hashString = this.GetHashString(model);
 
-            return new iParaLinkPaymentCreateResponse()
-            {
-                ErrorCode = "errorCode"
-            };
-        }
+            var header = this.WebHeaderCollection(hashString);
 
+
+            using (var httpCaller = new RestHttpCallerHelpers())
+            {
+                var result = httpCaller.PostJson<iParaLinkPaymentCreateResponse>(GetRequestUrl, header, model);
+                return result;
+            }
+        }
     }
 }

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,22 +46,24 @@
   <ItemGroup>
     <Compile Include="Adapter\AbstractIParaExecuter.cs" />
     <Compile Include="Adapter\IParaExecuter.cs" />
-    <Compile Include="Adapter\iParaLinkPaymentExecuter.cs" />
+    <Compile Include="Adapter\iParaLinkPaymentAdapter.cs" />
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
     <Compile Include="Constant\HeaderConstant.cs" />
     <Compile Include="Constant\RequestUrlConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
     <Compile Include="Exception\iParaClientConnectionException.cs" />
-    <Compile Include="Exception\iParaConnectionSettingsException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
-    <Compile Include="Model\iParaConnectionSettings.cs" />
     <Compile Include="Model\Request\iParaLinkPaymentCreateRequest.cs" />
     <Compile Include="Model\Response\iParaLinkPaymentCreateResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\iParaClientConnection.cs" />
     <Compile Include="Utils\HeaderHelpers.cs" />
+    <Compile Include="Utils\JsonBuilderHelpers.cs" />
+    <Compile Include="Utils\RestHttpCallerHelpers.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

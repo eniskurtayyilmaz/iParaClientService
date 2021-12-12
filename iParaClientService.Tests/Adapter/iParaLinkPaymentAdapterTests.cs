@@ -21,7 +21,6 @@ namespace iParaClientService.Tests.Adapter
     public class iParaLinkPaymentAdapterTests
     {
         private Mock<iParaClientConnection> _mockIParaClientConnection;
-        private iParaConnectionSettings _iParaConnectionSettings;
 
         [TestInitialize]
         public void Setup()
@@ -33,10 +32,25 @@ namespace iParaClientService.Tests.Adapter
             string version = "version";
 
             //Action
-            this._iParaConnectionSettings = new iParaConnectionSettings(baseUrl, publicKey, privateKey, mode, version);
 
-            this._mockIParaClientConnection = new Mock<iParaClientConnection>(_iParaConnectionSettings);
+            this._mockIParaClientConnection = new Mock<iParaClientConnection>(new object[]
+            {
+                baseUrl, publicKey, privateKey, mode, version
+            });
         }
+
+
+
+        [TestMethod]
+        public void AcceptType_Must_Valid_And_Equal()
+        {
+            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
+
+            var result = linkPaymentAdapter.AcceptType;
+
+            result.Should().Be(HeaderConstant.ApplicationJson);
+        }
+
 
         [TestMethod]
         public void Request_Url_Must_Valid_And_Equal()
@@ -45,7 +59,7 @@ namespace iParaClientService.Tests.Adapter
 
             var result = linkPaymentAdapter.GetRequestUrl;
 
-            result.Should().Be(RequestUrlConstant.LinkPaymentCreate);
+            result.Should().Be(_mockIParaClientConnection.Object.BaseUrl + RequestUrlConstant.LinkPaymentCreate);
         }
 
         [TestMethod]
@@ -60,7 +74,7 @@ namespace iParaClientService.Tests.Adapter
 
             //Assert    
             result.Message.Should()
-                .Be(ExceptionMessagesConstant.iParaClientConnectionExceptionMessages.ParaClientConnection);
+                .Be(ExceptionMessagesConstant.iParaClientConnectionExceptionMessages.ParaClientConnectionNullOrEmpty);
         }
 
         [TestMethod]
@@ -69,7 +83,7 @@ namespace iParaClientService.Tests.Adapter
             //Arrange
             var model = new Fixture().Create<iParaLinkPaymentCreateRequest>();
             var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
-            var hashString = HashStringBuilderHelpers.GetHashString(_iParaConnectionSettings.PrivateKey, model.Name,
+            var hashString = HashStringBuilderHelpers.GetHashString(_mockIParaClientConnection.Object.PrivateKey, model.Name,
                 model.Surname, model.Email, model.Amount.ToString(),
                 model.ClientIp, HeaderHelpers.GetTransactionDateString());
 
@@ -78,21 +92,6 @@ namespace iParaClientService.Tests.Adapter
 
             //Assert
             result.Should().Be(hashString);
-        }
-
-        [TestMethod]
-        public void Can_Call_Execute_As_LinkPayment()
-        {
-            //Arrange
-            var model = new Fixture().Create<iParaLinkPaymentCreateRequest>();
-            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
-
-            //Act
-            var result = linkPaymentAdapter.Execute(model);
-
-            //Assert
-            result.Should().BeOfType<iParaLinkPaymentCreateResponse>();
-            result.ErrorCode.Should().Be("errorCode");
         }
     }
 }
