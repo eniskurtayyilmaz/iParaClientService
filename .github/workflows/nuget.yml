@@ -8,6 +8,7 @@ on:
 
 env:
   PROJECT_PATH: 'iParaClientService/iParaClientService.csproj'
+  SOLUTION_PATH: 'iParaClientService.sln'
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
 
@@ -32,7 +33,7 @@ jobs:
       uses: Nuget/setup-nuget@v1.0.5      
       
     - name: Restore nuget packages
-      run: nuget restore ${{ env.PROJECT_PATH }}
+      run: nuget restore ${{ env.SOLUTION_PATH }}
       
     - name: Build
       run: msbuild ${{ env.PROJECT_PATH }} /p:Configuration=Release
