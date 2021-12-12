@@ -32,7 +32,7 @@ namespace iParaClientService.Integration.Tests
                     SendEmail = true,
                     Name = "Kurtay",
                     Surname = "Yılmaz",
-                    TcCertificate = "17768817870",
+                    TcCertificate = "18946660001",
                     TaxNumber = "",
                     Echo = "",
                     Mode = "T",
