@@ -9,13 +9,5 @@ namespace iParaClientService.Domain
 
         [XmlElement("mode")]
         public string Mode { get; set; }
-
-        [XmlIgnore]
-        //TODO: [JsonIgnore] //
-        public abstract string RequestEndpoint { get; }
-        
-        [XmlIgnore]
-        //TODO: [JsonIgnore] //
-        public abstract string RequestAcceptType { get; }
     }
 }

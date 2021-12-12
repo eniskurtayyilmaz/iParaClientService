@@ -22,6 +22,7 @@ namespace iParaClientService.Constant
         {
 
             public const string ParaConnectionSettings = "ParaConnectionSettings bilgisi null veya empty olamaz";
+            public const string ParaClientConnection = "ParaClientConnection bilgisi null veya empty olamaz";
 
         }
 

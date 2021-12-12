@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoFixture;
 using FluentAssertions;
 using iParaClientService.Constant;
 using iParaClientService.Exception;
@@ -27,6 +28,15 @@ namespace iParaClientService.Tests.Service
             //Assert
             result.Message.Should()
                 .Be(ExceptionMessagesConstant.iParaClientConnectionExceptionMessages.ParaConnectionSettings);
+        }
+
+        [TestMethod]
+        public void Connection_Dispose_Tests()
+        {
+            using (var connection = new iParaClientConnection(new Fixture().Create<iParaConnectionSettings>()))
+            {
+                
+            }
         }
     }
 }

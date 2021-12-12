@@ -12,15 +12,7 @@ using iParaClientService.Model.Response;
 
 namespace iParaClientService.Service
 {
-    public interface IExecuter<TRequest, TResponse> 
-        where TRequest : AbstractiParaRequestBase
-        where TResponse : AbstractiParaResponseBase
-    {
-        TResponse Execute(TRequest request);
-    }
-
-    public class iParaClientConnection : IDisposable, 
-        IExecuter<iParaLinkPaymentCreateRequest, iParaLinkPaymentCreateResponse>
+    public class iParaClientConnection : IDisposable
     {
         private readonly iParaConnectionSettings _paraConnectionSettings;
 
@@ -29,16 +21,13 @@ namespace iParaClientService.Service
             _paraConnectionSettings = paraConnectionSettings ?? throw new iParaClientConnectionException(ExceptionMessagesConstant
                 .iParaClientConnectionExceptionMessages.ParaConnectionSettings);
         }
-        
+
+        public string PrivateKey => _paraConnectionSettings.PrivateKey;
+         
 
         public void Dispose()
         {
             GC.SuppressFinalize(this);
-        }
-
-        public iParaLinkPaymentCreateResponse Execute(iParaLinkPaymentCreateRequest request)
-        {   
-            throw new NotImplementedException();
         }
     }
 }

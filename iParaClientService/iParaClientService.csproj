@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\AbstractIParaExecuter.cs" />
+    <Compile Include="Adapter\IParaExecuter.cs" />
+    <Compile Include="Adapter\iParaLinkPaymentExecuter.cs" />
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
+    <Compile Include="Constant\HeaderConstant.cs" />
+    <Compile Include="Constant\RequestUrlConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
     <Compile Include="Exception\iParaClientConnectionException.cs" />
@@ -52,10 +57,8 @@
     <Compile Include="Model\Response\iParaLinkPaymentCreateResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\iParaClientConnection.cs" />
+    <Compile Include="Utils\HeaderHelpers.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Adapter\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

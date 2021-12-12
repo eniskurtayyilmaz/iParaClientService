@@ -9,5 +9,10 @@ namespace iParaClientService.Model.Response
 {
     public class iParaLinkPaymentCreateResponse : AbstractiParaResponseBase
     {
+        public string Link { get; set; }
+
+        public string LinkPaymentId { get; set; }
+
+        public string Amount { get; set; }
     }
 }
