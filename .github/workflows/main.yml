@@ -9,7 +9,7 @@ on:
     
 env:
    IPARA_PUBLICKEY: '${{ secrets.IPARA_PUBLICKEY }}'
-   IPARA_PRIVATEKEY: '${{ secrets.IPARA_PUBLICKEY }}'
+   IPARA_PRIVATEKEY: '${{ secrets.IPARA_PRIVATEKEY }}'
 jobs:  
   build:    
     runs-on: windows-latest

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using iParaClientService.Adapter;
 using iParaClientService.Model;
 using iParaClientService.Model.Request;
@@ -16,8 +17,8 @@ namespace iParaClientService.Integration.Tests
         [TestInitialize]
         public void Setup()
         {
-            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY");
-            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY");
+            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY", EnvironmentVariableTarget.Machine);
+            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY", EnvironmentVariableTarget.Machine);
         }
 
         [TestMethod]
@@ -49,6 +50,10 @@ namespace iParaClientService.Integration.Tests
                 };
                 var adapter = new iParaLinkPaymentAdapter(connection);
                 var result = adapter.Execute(model);
+
+                Trace.WriteLine(result.ErrorCode);
+                Console.WriteLine(result.ErrorCode);
+                Debug.WriteLine(result.ErrorCode);
 
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
