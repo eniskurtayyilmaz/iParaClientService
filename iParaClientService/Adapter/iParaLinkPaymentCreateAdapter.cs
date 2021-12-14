@@ -8,12 +8,12 @@ using iParaClientService.Utils;
 namespace iParaClientService.Adapter
 {
 
-    public class iParaLinkPaymentAdapter
+    public class iParaLinkPaymentCreateAdapter
         : AbstractIParaExecuter<iParaLinkPaymentCreateRequest, iParaLinkPaymentCreateResponse>
     {
         private readonly iParaClientConnection _iParaClientConnection;
 
-        public iParaLinkPaymentAdapter(iParaClientConnection iParaClientConnection) : base(iParaClientConnection)
+        public iParaLinkPaymentCreateAdapter(iParaClientConnection iParaClientConnection) : base(iParaClientConnection)
         {
             _iParaClientConnection = iParaClientConnection;
         }

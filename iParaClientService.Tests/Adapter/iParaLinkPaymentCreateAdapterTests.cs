@@ -18,7 +18,7 @@ using Moq;
 namespace iParaClientService.Tests.Adapter
 {
     [TestClass]
-    public class iParaLinkPaymentAdapterTests
+    public class iParaLinkPaymentCreateAdapterTests
     {
         private Mock<iParaClientConnection> _mockIParaClientConnection;
 
@@ -44,7 +44,7 @@ namespace iParaClientService.Tests.Adapter
         [TestMethod]
         public void AcceptType_Must_Valid_And_Equal()
         {
-            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
+            var linkPaymentAdapter = new iParaLinkPaymentCreateAdapter(_mockIParaClientConnection.Object);
 
             var result = linkPaymentAdapter.AcceptType;
 
@@ -55,7 +55,7 @@ namespace iParaClientService.Tests.Adapter
         [TestMethod]
         public void Request_Url_Must_Valid_And_Equal()
         {
-            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
+            var linkPaymentAdapter = new iParaLinkPaymentCreateAdapter(_mockIParaClientConnection.Object);
 
             var result = linkPaymentAdapter.GetRequestUrl;
 
@@ -69,7 +69,7 @@ namespace iParaClientService.Tests.Adapter
 
 
             //Act
-            var result = Assert.ThrowsException<iParaClientConnectionException>(() => new iParaLinkPaymentAdapter(null));
+            var result = Assert.ThrowsException<iParaClientConnectionException>(() => new iParaLinkPaymentCreateAdapter(null));
 
 
             //Assert    
@@ -82,7 +82,7 @@ namespace iParaClientService.Tests.Adapter
         {
             //Arrange
             var model = new Fixture().Create<iParaLinkPaymentCreateRequest>();
-            var linkPaymentAdapter = new iParaLinkPaymentAdapter(_mockIParaClientConnection.Object);
+            var linkPaymentAdapter = new iParaLinkPaymentCreateAdapter(_mockIParaClientConnection.Object);
             var hashString = HashStringBuilderHelpers.GetHashString(_mockIParaClientConnection.Object.PrivateKey, model.Name,
                 model.Surname, model.Email, model.Amount.ToString(),
                 model.ClientIp, HeaderHelpers.GetTransactionDateString());

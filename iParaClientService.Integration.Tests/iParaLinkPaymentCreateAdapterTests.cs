@@ -9,7 +9,7 @@ using iParaClientService.Service;
 namespace iParaClientService.Integration.Tests
 {
     [TestClass]
-    public class iParaLinkPaymentAdapterTests
+    public class iParaLinkPaymentCreateAdapterTests
     {
         private string publicKey;
         private string privateKey;
@@ -54,7 +54,7 @@ namespace iParaClientService.Integration.Tests
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "5397143516",
                 };
-                var adapter = new iParaLinkPaymentAdapter(connection);
+                var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorCode);
