@@ -17,8 +17,8 @@ namespace iParaClientService.Integration.Tests
         [TestInitialize]
         public void Setup()
         {
-            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY", EnvironmentVariableTarget.Process);
-            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY", EnvironmentVariableTarget.Process);
+            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY");
+            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY");
         }
 
         [TestMethod]
@@ -54,6 +54,10 @@ namespace iParaClientService.Integration.Tests
                 Trace.WriteLine(result.ErrorCode);
                 Console.WriteLine(result.ErrorCode);
                 Debug.WriteLine(result.ErrorCode);
+
+                Trace.WriteLine(result.ErrorMessage);
+                Console.WriteLine(result.ErrorMessage);
+                Debug.WriteLine(result.ErrorMessage);
 
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
