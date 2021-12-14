@@ -5,13 +5,22 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+    
+    
+env:
+   IPARA_PUBLICKEY: '${{ secrets.IPARA_PUBLICKEY }}'
+   IPARA_PRIVATEKEY: '${{ secrets.IPARA_PRIVATEKEY }}'
 jobs:  
   build:    
     runs-on: windows-latest
     
     steps:      
       - uses: actions/checkout@v2
+      
+      - name: Setup Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneWindows: "Turkey Standard Time"
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
@@ -32,5 +41,8 @@ jobs:
         run: |
           msbuild.exe iParaClientService.sln /property:Configuration=Release
         
-      - name: Run Tests
+      - name: Run Unit Tests
         run: vstest.console.exe .\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+        
+      - name: Run Integration Tests
+        run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
