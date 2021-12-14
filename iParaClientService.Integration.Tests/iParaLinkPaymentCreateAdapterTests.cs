@@ -56,18 +56,12 @@ namespace iParaClientService.Integration.Tests
                 };
                 var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
-
-                Trace.WriteLine(result.ErrorCode);
-                Console.WriteLine(result.ErrorCode);
-                Debug.WriteLine(result.ErrorCode);
-
+                
                 Trace.WriteLine(result.ErrorMessage);
-                Console.WriteLine(result.ErrorMessage);
-                Debug.WriteLine(result.ErrorMessage);
 
+                Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
-
             }
         }
 
