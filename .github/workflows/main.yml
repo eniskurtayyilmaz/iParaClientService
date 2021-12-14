@@ -8,8 +8,8 @@ on:
     
     
 env:
-   IPARA_PUBLICKEY: 'XF0GK4W5WA0VN37'
-
+   IPARA_PUBLICKEY: '${{ secrets.IPARA_PUBLICKEY }}'
+   IPARA_PRIVATEKEY: '${{ secrets.IPARA_PUBLICKEY }}'
 jobs:  
   build:    
     runs-on: windows-latest
