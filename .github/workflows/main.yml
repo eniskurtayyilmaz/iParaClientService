@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    
+    
+env:
+   IPARA_PUBLICKEY: 'XF0GK4W5WA0VN37'
 
 jobs:  
   build:    
@@ -32,5 +36,8 @@ jobs:
         run: |
           msbuild.exe iParaClientService.sln /property:Configuration=Release
         
-      - name: Run Tests
+      - name: Run Unit Tests
         run: vstest.console.exe .\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+        
+      - name: Run Integration Tests
+        run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
