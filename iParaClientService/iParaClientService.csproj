@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Adapter\AbstractIParaExecuter.cs" />
     <Compile Include="Adapter\IParaExecuter.cs" />
-    <Compile Include="Adapter\iParaLinkPaymentAdapter.cs" />
+    <Compile Include="Adapter\iParaLinkPaymentCreateAdapter.cs" />
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
     <Compile Include="Constant\HeaderConstant.cs" />
     <Compile Include="Constant\RequestUrlConstant.cs" />

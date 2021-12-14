@@ -9,7 +9,7 @@ using iParaClientService.Service;
 namespace iParaClientService.Integration.Tests
 {
     [TestClass]
-    public class iParaLinkPaymentAdapterTests
+    public class iParaLinkPaymentCreateAdapterTests
     {
         private string publicKey;
         private string privateKey;
@@ -19,6 +19,12 @@ namespace iParaClientService.Integration.Tests
         {
             this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY");
             this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY");
+
+#if DEBUG
+            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY", EnvironmentVariableTarget.User);
+
+            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY", EnvironmentVariableTarget.User);
+#endif
         }
 
         [TestMethod]
@@ -48,20 +54,14 @@ namespace iParaClientService.Integration.Tests
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "5397143516",
                 };
-                var adapter = new iParaLinkPaymentAdapter(connection);
+                var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
-
-                Trace.WriteLine(result.ErrorCode);
-                Console.WriteLine(result.ErrorCode);
-                Debug.WriteLine(result.ErrorCode);
-
+                
                 Trace.WriteLine(result.ErrorMessage);
-                Console.WriteLine(result.ErrorMessage);
-                Debug.WriteLine(result.ErrorMessage);
 
+                Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
-
             }
         }
 

@@ -77,7 +77,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter\iParaLinkPaymentAdapterTests.cs" />
+    <Compile Include="Adapter\iParaLinkPaymentCreateAdapterTests.cs" />
     <Compile Include="Exception\iParaConnectionSettingsExceptionTests.cs" />
     <Compile Include="Header\HeaderConstantTests.cs" />
     <Compile Include="Header\RequestUrlConstantTests.cs" />
