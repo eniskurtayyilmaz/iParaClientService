@@ -19,6 +19,12 @@ namespace iParaClientService.Integration.Tests
         {
             this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY");
             this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY");
+
+#if DEBUG
+            this.publicKey = Environment.GetEnvironmentVariable("IPARA_PUBLICKEY", EnvironmentVariableTarget.User);
+
+            this.privateKey = Environment.GetEnvironmentVariable("IPARA_PRIVATEKEY", EnvironmentVariableTarget.User);
+#endif
         }
 
         [TestMethod]
