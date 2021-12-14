@@ -22,20 +22,20 @@ namespace iParaClientService.Utils
             return publicKey + ":" + inputHashString;
         }
 
-        /// <summary>
-        /// Verilen string'i SHA1 ile hashleyip Base64 formatına çeviren fonksiyondur. 
-        /// CreateToken'dan farklı olarak token oluşturmaz sadece hash hesaplar
-        /// </summary>
-        /// <param name="hashString"></param>
-        /// <returns></returns>
-        public static string ComputeHash(string hashString)
-        {
-            HashAlgorithm algorithm = new SHA1Managed();
-            var hashbytes = Encoding.UTF8.GetBytes(hashString);
-            var inputbytes = algorithm.ComputeHash(hashbytes);
-            var inputHashString = Convert.ToBase64String(inputbytes);
-            return inputHashString;
-        }
+        ///// <summary>
+        ///// Verilen string'i SHA1 ile hashleyip Base64 formatına çeviren fonksiyondur. 
+        ///// CreateToken'dan farklı olarak token oluşturmaz sadece hash hesaplar
+        ///// </summary>
+        ///// <param name="hashString"></param>
+        ///// <returns></returns>
+        //public static string ComputeHash(string hashString)
+        //{
+        //    HashAlgorithm algorithm = new SHA1Managed();
+        //    var hashbytes = Encoding.UTF8.GetBytes(hashString);
+        //    var inputbytes = algorithm.ComputeHash(hashbytes);
+        //    var inputHashString = Convert.ToBase64String(inputbytes);
+        //    return inputHashString;
+        //}
     }
 
     public static class HashStringBuilderHelpers
