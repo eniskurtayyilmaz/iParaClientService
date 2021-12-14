@@ -29,7 +29,7 @@ namespace iParaClientService.Integration.Tests
 
         [TestMethod]
 
-        public void Can_Create_Link_Payment()
+        public void Can_Create_Link_Payment_Valid()
         {
             string baseUrl = "https://api.ipara.com/";
             iParaConnectionMode mode = iParaConnectionMode.Test;
@@ -56,12 +56,61 @@ namespace iParaClientService.Integration.Tests
                 };
                 var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
-                
+
                 Trace.WriteLine(result.ErrorMessage);
 
                 Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
+
+                Assert.AreEqual(model.Amount, result.Amount.Value);
+                Assert.IsNotNull(result.Link);
+                Assert.IsNotNull(result.LinkPaymentId);
+                Assert.IsNotNull(result.Result);
+                Assert.IsNotNull(result.ResponseMessage);
+            }
+        }
+
+        [TestMethod]
+
+        public void Can_Create_Link_Payment_Invalid()
+        {
+            string baseUrl = "https://api.ipara.com/";
+            iParaConnectionMode mode = iParaConnectionMode.Test;
+            string version = "1.0";
+
+            using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
+            {
+                var model = new iParaLinkPaymentCreateRequest
+                {
+                    Amount = 10,
+                    ThreeD = true,
+                    ClientIp = "127.0.0.1",
+                    CommissionType = CommissionType.Dealer,
+                    Email = "kurtayyilmaz@gmail.com",
+                    SendEmail = true,
+                    Name = "Kurtay",
+                    Surname = "Yılmaz",
+                    TcCertificate = "",
+                    TaxNumber = "",
+                    Echo = "",
+                    Mode = "T",
+                    ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
+                    Gsm = "53143516",
+                };
+                var adapter = new iParaLinkPaymentCreateAdapter(connection);
+                var result = adapter.Execute(model);
+
+                Trace.WriteLine(result.ErrorMessage);
+
+                Assert.IsFalse(result.IsValid);
+                Assert.IsNotNull(result.ErrorCode);
+                Assert.IsNotNull(result.ErrorMessage);
+
+                Assert.IsNull(result.Link);
+                Assert.IsNull(result.LinkPaymentId);
+                Assert.IsNotNull(result.Result);
+                
             }
         }
 

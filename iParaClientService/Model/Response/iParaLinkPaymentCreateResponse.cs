@@ -13,6 +13,6 @@ namespace iParaClientService.Model.Response
 
         public string LinkPaymentId { get; set; }
 
-        public string Amount { get; set; }
+        public int? Amount { get; set; }
     }
 }

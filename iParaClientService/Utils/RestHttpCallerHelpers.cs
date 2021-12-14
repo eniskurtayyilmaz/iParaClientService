@@ -14,13 +14,13 @@ namespace iParaClientService.Utils
     {
         
 
-        public T GetJson<T>(String url)
-        {
-            HttpClient httpClient = new HttpClient();
-            HttpResponseMessage httpResponseMessage = httpClient.GetAsync(url).Result;
+        //public T GetJson<T>(String url)
+        //{
+        //    HttpClient httpClient = new HttpClient();
+        //    HttpResponseMessage httpResponseMessage = httpClient.GetAsync(url).Result;
 
-            return JsonConvert.DeserializeObject<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
-        }
+        //    return JsonConvert.DeserializeObject<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
+        //}
 
 
         /// <summary>
