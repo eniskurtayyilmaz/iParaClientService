@@ -45,5 +45,13 @@ namespace iParaClientService.Integration.Tests
               
             }
         }
+
+        [TestMethod]
+        public void Can_Get_Test_Environment_From_GithubAction()
+        {
+            var publicKey =  Environment.GetEnvironmentVariable("IPARA_PUBLICKEY");
+            Console.WriteLine(publicKey);
+            Assert.AreEqual("XF0GK4W5WA0VN37", publicKey);
+        }
     }
 }
