@@ -46,9 +46,3 @@ jobs:
         
       - name: Run Integration Tests
         run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          path-to-lcov: ${{ github.workspace }}\coverage\lcov.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
