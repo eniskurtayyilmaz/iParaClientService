@@ -38,7 +38,7 @@ namespace iParaClientService.Integration.Tests
                     ClientIp = "127.0.0.1",
                     CommissionType = CommissionType.Dealer,
                     Email = "kurtayyilmaz@gmail.com",
-                    SendEmail = true,
+                    SendEmail = false,
                     Name = "Kurtay",
                     Surname = "Yılmaz",
                     TcCertificate = "18946604794",
@@ -51,9 +51,8 @@ namespace iParaClientService.Integration.Tests
                 var adapter = new iParaLinkPaymentAdapter(connection);
                 var result = adapter.Execute(model);
 
-                Trace.WriteLine(result.ErrorCode);
-                Console.WriteLine(result.ErrorCode);
-                Debug.WriteLine(result.ErrorCode);
+                Trace.WriteLine("trace" + result.ErrorCode);
+                Debug.WriteLine("debug" + result.ErrorCode);
 
                 Trace.WriteLine(result.ErrorMessage);
                 Console.WriteLine(result.ErrorMessage);
