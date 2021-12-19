@@ -81,15 +81,14 @@
     <Compile Include="Exception\iParaConnectionSettingsExceptionTests.cs" />
     <Compile Include="Header\HeaderConstantTests.cs" />
     <Compile Include="Header\RequestUrlConstantTests.cs" />
+    <Compile Include="Model\iParaLinkPaymentCreateRequestModelTests.cs" />
     <Compile Include="Service\iParaClientConnectionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\iParaClientService\iParaClientService.csproj">
       <Project>{0F6E96F0-15D7-4837-9B90-96EA1075CF32}</Project>

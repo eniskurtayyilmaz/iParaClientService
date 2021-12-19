@@ -9,12 +9,12 @@ namespace iParaClientService.Utils
     {
         public static int SetAmount(this double value)
         {
-            return (int)(value * 100);
+            return (int)Math.Round(value * 100);
         }
 
         public static double GetAmount(this int value)
         {
-            return value / (double)100;
+            return Math.Round(value / (double)100);
         }
 
         public static double GetAmount(this int? value)
