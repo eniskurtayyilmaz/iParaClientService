@@ -19,6 +19,11 @@ jobs:
     steps:
     - name: 'Checkout'
       uses: actions/checkout@v2
+      
+    - name: Setup Timezone
+      uses: szenius/set-timezone@v1.0
+      with:
+        timezoneWindows: "Turkey Standard Time"
 
     - name: 'Install dotnet'
       uses: actions/setup-dotnet@v1
@@ -29,13 +34,22 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Setup Nuget
-      uses: Nuget/setup-nuget@v1.0.5      
+      uses: Nuget/setup-nuget@v1.0.5
+        
+    - name: Setup VSTest
+      uses: darenm/Setup-VSTest@v1      
       
     - name: Restore nuget packages
       run: nuget restore ${{ env.SOLUTION_PATH }}
       
     - name: Build
       run: msbuild ${{ env.PROJECT_PATH }} /p:Configuration=Release
+      
+    - name: Run Unit Tests
+      run: vstest.console.exe .\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+        
+    - name: Run Integration Tests
+      run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
 
     - name: 'Get Version'
       id: version
