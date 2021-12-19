@@ -46,10 +46,10 @@ jobs:
       run: msbuild ${{ env.PROJECT_PATH }} /p:Configuration=Release
       
     - name: Run Unit Tests
-      run: vstest.console.exe .\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+      run: vstest.console.exe ..\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
         
     - name: Run Integration Tests
-      run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
+      run: vstest.console.exe ..\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
 
     - name: 'Get Version'
       id: version
