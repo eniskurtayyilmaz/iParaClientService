@@ -55,6 +55,7 @@
     <Compile Include="Exception\iParaClientConnectionException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
     <Compile Include="Model\Request\CommissionType.cs" />
+    <Compile Include="Model\Request\IAmount.cs" />
     <Compile Include="Model\Request\iParaLinkPaymentCreateRequest.cs" />
     <Compile Include="Model\Response\iParaLinkPaymentCreateResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
