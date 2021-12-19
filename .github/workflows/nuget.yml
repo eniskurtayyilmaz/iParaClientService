@@ -7,7 +7,9 @@ on:
     - 'v*'
 
 env:
-  PROJECT_PATH: 'iParaClientService/iParaClientService.csproj'
+  PROJECT_PATH: 'iParaClientService/iParaClientService.csproj'  
+  UNITTEST_PROJECT_PATH: 'iParaClientService.Tests/bin/Release/iParaClientService.Tests.dll'  
+  INTEGRATION_PROJECT_PATH: 'iParaClientService.Integration.Tests/bin/Release/iParaClientService.Integration.Tests.dll'
   SOLUTION_PATH: 'iParaClientService.sln'
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
@@ -46,10 +48,10 @@ jobs:
       run: msbuild ${{ env.PROJECT_PATH }} /p:Configuration=Release
       
     - name: Run Unit Tests
-      run: vstest.console.exe ..\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+      run: vstest.console.exe  ${{ env.UNITTEST_PROJECT_PATH }}
         
     - name: Run Integration Tests
-      run: vstest.console.exe ..\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll
+      run: vstest.console.exe  ${{ env.INTEGRATION_PROJECT_PATH }}
 
     - name: 'Get Version'
       id: version
