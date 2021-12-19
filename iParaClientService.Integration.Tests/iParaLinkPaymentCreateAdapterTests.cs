@@ -88,7 +88,7 @@ namespace iParaClientService.Integration.Tests
                     ClientIp = "127.0.0.1",
                     CommissionType = CommissionType.Dealer,
                     Email = "kurtayyilmaz@gmail.com",
-                    SendEmail = true,
+                    SendEmail = false,
                     Name = "Kurtay",
                     Surname = "Yılmaz",
                     TcCertificate = "",
