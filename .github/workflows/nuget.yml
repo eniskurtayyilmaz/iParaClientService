@@ -15,7 +15,9 @@ env:
   SOLUTION_PATH: 'iParaClientService.sln'
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
-
+  IPARA_PUBLICKEY: '${{ secrets.IPARA_PUBLICKEY }}'
+  IPARA_PRIVATEKEY: '${{ secrets.IPARA_PRIVATEKEY }}'
+  
 jobs:
   deploy:
     name: 'Deploy'
