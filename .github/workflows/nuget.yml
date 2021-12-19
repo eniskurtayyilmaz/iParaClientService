@@ -5,6 +5,8 @@ on:
     branches: [ main ]
     tags:
     - 'v*'
+  pull_request:
+    branches: [ main ]
 
 env:
   PROJECT_PATH: 'iParaClientService/iParaClientService.csproj'  
@@ -45,7 +47,7 @@ jobs:
       run: nuget restore ${{ env.SOLUTION_PATH }}
       
     - name: Build
-      run: msbuild ${{ env.PROJECT_PATH }} /p:Configuration=Release
+      run: msbuild ${{ env.SOLUTION_PATH }} /p:Configuration=Release
       
     - name: Run Unit Tests
       run: vstest.console.exe  ${{ env.UNITTEST_PROJECT_PATH }}
