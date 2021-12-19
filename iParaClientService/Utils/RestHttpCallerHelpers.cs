@@ -38,7 +38,7 @@ namespace iParaClientService.Utils
             {
                 httpClient.DefaultRequestHeaders.Add(key, headers.Get(key));
             }
-            HttpResponseMessage httpResponseMessage = httpClient.PostAsync(url, JsonBuilderHelpers.ToJsonString(request)).Result;
+            HttpResponseMessage httpResponseMessage = httpClient.PostAsync(url, JsonBuilderHelpers.ToJsonStringContent(request)).Result;
             var a = httpResponseMessage.Content.ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject<T>(a);
         }
