@@ -39,7 +39,6 @@ namespace iParaClientService.Integration.Tests
             {
                 var model = new iParaLinkPaymentCreateRequest
                 {
-                    Amount = 10,
                     ThreeD = true,
                     ClientIp = "127.0.0.1",
                     CommissionType = CommissionType.Dealer,
@@ -54,6 +53,8 @@ namespace iParaClientService.Integration.Tests
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "5397143516",
                 };
+                model.SetAmount(10);
+
                 var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
 
@@ -83,12 +84,11 @@ namespace iParaClientService.Integration.Tests
             {
                 var model = new iParaLinkPaymentCreateRequest
                 {
-                    Amount = 10,
                     ThreeD = true,
                     ClientIp = "127.0.0.1",
                     CommissionType = CommissionType.Dealer,
                     Email = "kurtayyilmaz@gmail.com",
-                    SendEmail = false,
+                    SendEmail = true,
                     Name = "Kurtay",
                     Surname = "Yılmaz",
                     TcCertificate = "",
@@ -98,6 +98,7 @@ namespace iParaClientService.Integration.Tests
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "53143516",
                 };
+                model.SetAmount(10);
                 var adapter = new iParaLinkPaymentCreateAdapter(connection);
                 var result = adapter.Execute(model);
 
@@ -106,7 +107,6 @@ namespace iParaClientService.Integration.Tests
                 Assert.IsFalse(result.IsValid);
                 Assert.IsNotNull(result.ErrorCode);
                 Assert.IsNotNull(result.ErrorMessage);
-
                 Assert.IsNull(result.Link);
                 Assert.IsNull(result.LinkPaymentId);
                 Assert.IsNotNull(result.Result);

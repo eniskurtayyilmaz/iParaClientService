@@ -5,6 +5,28 @@ using System.Text;
 
 namespace iParaClientService.Utils
 {
+    public static class AmountHelpers
+    {
+        public static int SetAmount(this double value)
+        {
+            return (int)Math.Round(value * 100);
+        }
+
+        public static double GetAmount(this int value)
+        {
+            return Math.Round(value / (double)100);
+        }
+
+        public static double GetAmount(this int? value)
+        {
+            if (!value.HasValue)
+            {
+                return 0;
+            }
+
+            return GetAmount(value.Value);
+        }
+    }
     public static class HeaderHelpers
     {
         public static string GetTransactionDateString()

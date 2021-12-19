@@ -31,7 +31,6 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
 {
     var model = new iParaLinkPaymentCreateRequest
     {
-        Amount = 10,
         SendEmail = true,
         Name = "Kurtay",
         Surname = "Yılmaz",
@@ -40,6 +39,7 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
         Gsm = "5397143516",
         /// Other required properties, like Email, ClientIp etc.
     };
+	model.SetAmount(10.50); //10,50 TL EURO DOLAR
     var adapter = new iParaLinkPaymentCreateAdapter(connection);
     var result = adapter.Execute(model);
 }
