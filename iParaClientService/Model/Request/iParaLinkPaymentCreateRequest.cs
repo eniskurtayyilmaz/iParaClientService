@@ -7,23 +7,19 @@ using iParaClientService.Constant;
 using iParaClientService.Domain;
 using iParaClientService.Model.Response;
 using iParaClientService.Service;
+using iParaClientService.Utils;
 using Newtonsoft.Json;
 
 namespace iParaClientService.Model.Request
 {
-    public enum CommissionType
+    //AmountHelpers
+    public interface IAmount
     {
-        /// <summary>
-        /// Satıcı
-        /// </summary>
-        Seller = 1,
-        /// <summary>
-        /// Müşteri
-        /// </summary>
-        Dealer = 2
+        void SetAmount(double money);
+        double GetAmount();
     }
 
-    public class iParaLinkPaymentCreateRequest : AbstractiParaRequestBase
+    public class iParaLinkPaymentCreateRequest : AbstractiParaRequestBase, IAmount
     {
         public string Name { get; set; }
 
@@ -37,7 +33,7 @@ namespace iParaClientService.Model.Request
 
         public string Gsm { get; set; }
 
-        public int Amount { get; protected set; }
+        //public 
 
         public bool ThreeD { get; set; }
 
@@ -48,15 +44,17 @@ namespace iParaClientService.Model.Request
         public CommissionType CommissionType { get; set; }
 
         public string ClientIp { get; set; }
-        
+
+        public int Amount { get; protected set; }
+
         public void SetAmount(double money)
         {
-            this.Amount = (int)(money * 100);
+            this.Amount = money.SetAmount();
         }
-        
+
         public double GetAmount()
         {
-            return this.Amount / (double)100;
+            return this.Amount.GetAmount();
         }
     }
 }
