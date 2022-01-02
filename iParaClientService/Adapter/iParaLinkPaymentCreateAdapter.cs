@@ -7,7 +7,6 @@ using iParaClientService.Utils;
 
 namespace iParaClientService.Adapter
 {
-
     public class iParaLinkPaymentCreateAdapter
         : AbstractIParaExecuter<iParaLinkPaymentCreateRequest, iParaLinkPaymentCreateResponse>
     {

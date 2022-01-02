@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +11,7 @@ using Newtonsoft.Json;
 
 namespace iParaClientService.Model.Request
 {
+
     public class iParaLinkPaymentCreateRequest : AbstractiParaRequestBase, IAmount
     {
         public string Name { get; set; }

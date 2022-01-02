@@ -13,6 +13,14 @@ namespace iParaClientService.Tests.Header
             var result = RequestUrlConstant.LinkPaymentCreate;
 
             result.Should().Be("corporate/merchant/linkpayment/create");
+        }  
+        
+        [TestMethod]
+        public void RequestUrlConstant_LinkPaymentList()
+        {
+            var result = RequestUrlConstant.LinkPaymentList;
+
+            result.Should().Be("corporate/merchant/linkpayment/list");
         }
     }
 }
