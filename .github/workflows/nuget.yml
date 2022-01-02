@@ -58,9 +58,12 @@ jobs:
     - name: 'Get Version'
       id: version
       uses: battila7/get-version-action@v2
+      
+    - name: Set VERSION variable from tag
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> 
 
     - name: 'Pack project'
-      run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0. ${{github.ref}}
+      run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0.${VERSION}
 
     - name: 'Push package'
       run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg  ${{ secrets.NUGET_AUTH_TOKEN }} -Source ${{ env.NUGET_SOURCE_URL }}
