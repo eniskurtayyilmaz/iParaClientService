@@ -60,7 +60,7 @@ jobs:
       uses: battila7/get-version-action@v2
       
     - name: Set VERSION variable from tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> 
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
 
     - name: 'Pack project'
       run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0.${VERSION}
