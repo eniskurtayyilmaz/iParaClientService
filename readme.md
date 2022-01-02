@@ -2,7 +2,7 @@
 
 | Name | Status |
 | ------ | ------ |
-| Tests | ![example workflow](https://github.com/eniskurtayyilmaz/iParaClientService/actions/workflows/main.yml/badge.svg) |
+| Tests | ![Build and Tests](https://github.com/eniskurtayyilmaz/iParaClientService/actions/workflows/main.yml/badge.svg) |
 | Nuget Published |[![Deploy to NuGet](https://github.com/eniskurtayyilmaz/iParaClientService/actions/workflows/nuget.yml/badge.svg)](https://www.nuget.org/packages/iParaClientService/) |
 
 ### Dependency
