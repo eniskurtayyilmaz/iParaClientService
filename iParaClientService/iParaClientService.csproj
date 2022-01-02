@@ -48,11 +48,13 @@
     <Compile Include="Adapter\IParaExecuter.cs" />
     <Compile Include="Adapter\iParaLinkPaymentCreateAdapter.cs" />
     <Compile Include="Adapter\iParaLinkPaymentListAdapter.cs" />
+    <Compile Include="Adapter\iParaPaymentInquiryAdapter.cs" />
     <Compile Include="Constant\ExceptionMessagesConstant.cs" />
     <Compile Include="Constant\HeaderConstant.cs" />
     <Compile Include="Constant\RequestUrlConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
+    <Compile Include="Domain\PaymentDetails.cs" />
     <Compile Include="Domain\PaymentLink.cs" />
     <Compile Include="Exception\iParaClientConnectionException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
@@ -60,14 +62,17 @@
     <Compile Include="Model\Request\IAmount.cs" />
     <Compile Include="Model\Request\iParaLinkPaymentCreateRequest.cs" />
     <Compile Include="Model\Request\iParaLinkPaymentListRequest.cs" />
+    <Compile Include="Model\Request\iParaPaymentInquiryRequest.cs" />
     <Compile Include="Model\Request\LinkState.cs" />
     <Compile Include="Model\Response\iParaLinkPaymentCreateResponse.cs" />
     <Compile Include="Model\Response\iParaLinkPaymentListResponse.cs" />
+    <Compile Include="Model\Response\iParaPaymentInquiryResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\iParaClientConnection.cs" />
     <Compile Include="Utils\HeaderHelpers.cs" />
     <Compile Include="Utils\JsonBuilderHelpers.cs" />
     <Compile Include="Utils\RestHttpCallerHelpers.cs" />
+    <Compile Include="Utils\XmlBuilderHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -22,5 +22,13 @@ namespace iParaClientService.Tests.Header
 
             result.Should().Be("corporate/merchant/linkpayment/list");
         }
+
+        [TestMethod]
+        public void RequestUrlConstant_PaymentInquiry()
+        {
+            var result = RequestUrlConstant.PaymentInquiry;
+
+            result.Should().Be("rest/payment/inquiry");
+        }
     }
 }

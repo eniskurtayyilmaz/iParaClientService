@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -28,4 +27,5 @@ namespace iParaClientService.Utils
             return new StringContent(SerializeToJsonString(request), Encoding.Unicode, HeaderConstant.ApplicationJson);
         }
     }
+
 }

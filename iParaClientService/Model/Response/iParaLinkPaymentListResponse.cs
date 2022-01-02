@@ -3,6 +3,7 @@ using iParaClientService.Domain;
 
 namespace iParaClientService.Model.Response
 {
+
     public class iParaLinkPaymentListResponse : AbstractiParaResponseBase
     {
         public List<PaymentLink> LinkPaymentRecordList { get; set; }

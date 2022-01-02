@@ -26,6 +26,7 @@ namespace iParaClientService.Domain
         public string TaxNumber { set; get; }
 
         public string TcCertificate { set; get; }
+        public PaymentDetails PaymentDetails { get; set; }
 
         public void SetAmount(double money)
         {

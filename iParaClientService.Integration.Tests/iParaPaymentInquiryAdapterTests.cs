@@ -9,7 +9,7 @@ using iParaClientService.Service;
 namespace iParaClientService.Integration.Tests
 {
     [TestClass]
-    public class iParaLinkPaymentCreateAdapterTests
+    public class iParaPaymentInquiryAdapterTests
     {
         private string publicKey;
         private string privateKey;
@@ -28,6 +28,7 @@ namespace iParaClientService.Integration.Tests
         }
 
         [TestMethod]
+        [Ignore("Veri bütünlüğü eksik")]
 
         public void Can_Create_Link_Payment_Valid()
         {
@@ -37,25 +38,15 @@ namespace iParaClientService.Integration.Tests
 
             using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
             {
-                var model = new iParaLinkPaymentCreateRequest
+                var model = new iParaPaymentInquiryRequest
                 {
-                    ThreeD = false,
-                    ClientIp = "127.0.0.1",
-                    CommissionType = CommissionType.Dealer,
-                    Email = "kurtayyilmaz@gmail.com",
-                    SendEmail = true,
-                    Name = "Kurtay",
-                    Surname = "Yılmaz",
-                    TcCertificate = "18946604794",
-                    TaxNumber = "",
+
                     Echo = "",
                     Mode = "T",
-                    ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
-                    Gsm = "5397143516",
+                    OrderId = "002iCNJFO33A7A1Fsd8fq/HPg=="
                 };
-                model.SetAmount(10);
 
-                var adapter = new iParaLinkPaymentCreateAdapter(connection);
+                var adapter = new iParaPaymentInquiryAdapter(connection);
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
@@ -64,11 +55,9 @@ namespace iParaClientService.Integration.Tests
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
 
-                Assert.AreEqual(model.Amount, result.Amount.Value);
-                Assert.IsNotNull(result.Link);
-                Assert.IsNotNull(result.LinkPaymentId);
                 Assert.IsNotNull(result.Result);
                 Assert.IsNotNull(result.ResponseMessage);
+                Assert.AreEqual(10, result.GetAmount());
             }
         }
 
@@ -82,24 +71,13 @@ namespace iParaClientService.Integration.Tests
 
             using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
             {
-                var model = new iParaLinkPaymentCreateRequest
+                var model = new iParaPaymentInquiryRequest
                 {
-                    ThreeD = true,
-                    ClientIp = "127.0.0.1",
-                    CommissionType = CommissionType.Dealer,
-                    Email = "kurtayyilmaz@gmail.com",
-                    SendEmail = true,
-                    Name = "Kurtay",
-                    Surname = "Yılmaz",
-                    TcCertificate = "",
-                    TaxNumber = "",
                     Echo = "",
                     Mode = "T",
-                    ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
-                    Gsm = "53143516",
+                    OrderId = ""
                 };
-                model.SetAmount(10);
-                var adapter = new iParaLinkPaymentCreateAdapter(connection);
+                var adapter = new iParaPaymentInquiryAdapter(connection);
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
@@ -107,10 +85,8 @@ namespace iParaClientService.Integration.Tests
                 Assert.IsFalse(result.IsValid);
                 Assert.IsNotNull(result.ErrorCode);
                 Assert.IsNotNull(result.ErrorMessage);
-                Assert.IsNull(result.Link);
-                Assert.IsNull(result.LinkPaymentId);
                 Assert.IsNotNull(result.Result);
-                
+
             }
         }
 

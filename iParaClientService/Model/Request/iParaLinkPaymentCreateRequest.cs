@@ -11,7 +11,6 @@ using Newtonsoft.Json;
 
 namespace iParaClientService.Model.Request
 {
-
     public class iParaLinkPaymentCreateRequest : AbstractiParaRequestBase, IAmount
     {
         public string Name { get; set; }
