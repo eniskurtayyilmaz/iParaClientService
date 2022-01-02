@@ -22,7 +22,7 @@ Honestly we had the job about iPara integration. When I check [their github repo
 - Use _iParaClientAdapter_ dependency of your request model
 - Get the result!
 
-### Example
+### Example Create Link Request
 ```csharp
 string baseUrl = "https://api.ipara.com/";
 iParaConnectionMode mode = iParaConnectionMode.Test;
@@ -41,6 +41,25 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
     };
 	model.SetAmount(10.50); //10,50 TL EURO DOLAR
     var adapter = new iParaLinkPaymentCreateAdapter(connection);
+    var result = adapter.Execute(model);
+}
+````
+
+### Example Created Link List Request
+```csharp
+string baseUrl = "https://api.ipara.com/";
+iParaConnectionMode mode = iParaConnectionMode.Test;
+string version = "1.0";
+using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
+{
+    var model = new iParaLinkPaymentListRequest
+    {
+        Gsm = "5397143516",
+		PageSize = 15,
+		PageIndex = 1
+        /// Other required properties, like Email etc
+    };
+    var adapter = new iParaLinkPaymentListAdapter(connection);
     var result = adapter.Execute(model);
 }
 ````

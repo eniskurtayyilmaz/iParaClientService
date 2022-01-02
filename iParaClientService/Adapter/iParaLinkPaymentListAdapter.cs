@@ -6,6 +6,7 @@ using iParaClientService.Utils;
 
 namespace iParaClientService.Adapter
 {
+
     public class iParaLinkPaymentListAdapter : AbstractIParaExecuter<iParaLinkPaymentListRequest, iParaLinkPaymentListResponse>
     {
         private readonly iParaClientConnection iParaClientConnection;
