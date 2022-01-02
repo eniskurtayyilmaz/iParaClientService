@@ -54,6 +54,7 @@
     <Compile Include="Constant\RequestUrlConstant.cs" />
     <Compile Include="Domain\AbstractiParaRequestBase.cs" />
     <Compile Include="Domain\AbstractiParaResponseBase.cs" />
+    <Compile Include="Domain\PaymentDetails.cs" />
     <Compile Include="Domain\PaymentLink.cs" />
     <Compile Include="Exception\iParaClientConnectionException.cs" />
     <Compile Include="Model\iParaConnectionMode.cs" />
