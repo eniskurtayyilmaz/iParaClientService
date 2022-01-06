@@ -49,7 +49,7 @@ namespace iParaClientService.Integration.Tests
                     TcCertificate = "18946604794",
                     TaxNumber = "",
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "5397143516",
                 };
@@ -94,7 +94,7 @@ namespace iParaClientService.Integration.Tests
                     TcCertificate = "",
                     TaxNumber = "",
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     ExpireDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss"),
                     Gsm = "53143516",
                 };

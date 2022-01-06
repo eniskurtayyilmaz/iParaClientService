@@ -40,7 +40,7 @@ namespace iParaClientService.Integration.Tests
                 var model = new iParaLinkPaymentListRequest
                 {
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     PageSize = 15,
                     PageIndex = 1,
                     Email = "kurtayyilmaz@gmail.com"
@@ -76,7 +76,7 @@ namespace iParaClientService.Integration.Tests
                 {
                     ClientIp = "127.0.0.1",
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     Gsm = "53143516",
                 };
                 var adapter = new iParaLinkPaymentListAdapter(connection);

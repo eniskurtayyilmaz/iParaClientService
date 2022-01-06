@@ -27,7 +27,7 @@ namespace iParaClientService.Adapter
 
         public override iParaLinkPaymentListResponse Execute(iParaLinkPaymentListRequest model)
         {
-            model.Mode = iParaClientConnection.GetMode();
+            //model.Mode = iParaClientConnection.GetMode();
             var hashString = this.GetHashString(model);
 
             var header = this.WebHeaderCollection(hashString);

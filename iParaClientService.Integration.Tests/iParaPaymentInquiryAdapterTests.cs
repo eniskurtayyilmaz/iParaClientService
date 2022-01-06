@@ -42,7 +42,7 @@ namespace iParaClientService.Integration.Tests
                 {
 
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     OrderId = "002iCNJFO33A7A1Fsd8fq/HPg=="
                 };
 
@@ -74,7 +74,7 @@ namespace iParaClientService.Integration.Tests
                 var model = new iParaPaymentInquiryRequest
                 {
                     Echo = "",
-                    Mode = "T",
+                    //Mode = "T",
                     OrderId = ""
                 };
                 var adapter = new iParaPaymentInquiryAdapter(connection);

@@ -83,7 +83,7 @@ namespace iParaClientService.Tests.Adapter
             //Arrange
             var model = new Fixture().Create<iParaPaymentInquiryRequest>();
             var linkPaymentAdapter = new iParaPaymentInquiryAdapter(_mockIParaClientConnection.Object);
-            var hashString = HashStringBuilderHelpers.GetHashString(_mockIParaClientConnection.Object.PrivateKey, model.OrderId, model.Mode, HeaderHelpers.GetTransactionDateString());
+            var hashString = HashStringBuilderHelpers.GetHashString(_mockIParaClientConnection.Object.PrivateKey, model.OrderId, HeaderHelpers.GetTransactionDateString());
 
             //Act
             var result = linkPaymentAdapter.GetHashString(model);
