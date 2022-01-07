@@ -26,7 +26,7 @@ namespace iParaClientService.Adapter
         public override string AcceptType => HeaderConstant.ApplicationJson;
         public override iParaLinkPaymentCreateResponse Execute(iParaLinkPaymentCreateRequest model)
         {
-            //model.Mode = _iParaClientConnection.GetMode();
+            model.Mode = _iParaClientConnection.GetMode();
             var hashString = this.GetHashString(model);
 
             var header = this.WebHeaderCollection(hashString);
