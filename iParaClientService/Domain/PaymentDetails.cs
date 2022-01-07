@@ -1,8 +1,10 @@
-﻿namespace iParaClientService.Domain
+﻿using System;
+
+namespace iParaClientService.Domain
 {
     public class PaymentDetails
     {
-        public string PaymentDate { set; get; }
+        public DateTime? PaymentDate { set; get; }
         public string OrderId { set; get; }
     }
 }

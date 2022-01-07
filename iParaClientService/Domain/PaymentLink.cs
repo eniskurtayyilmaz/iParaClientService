@@ -1,4 +1,5 @@
-﻿using iParaClientService.Model.Request;
+﻿using System.Collections.Generic;
+using iParaClientService.Model.Request;
 using iParaClientService.Utils;
 
 namespace iParaClientService.Domain
@@ -17,7 +18,7 @@ namespace iParaClientService.Domain
 
         public string LinkId { set; get; }
 
-        public string LinkState { set; get; }
+        public LinkState LinkState { set; get; }
 
         public string Name { set; get; }
 
@@ -26,7 +27,7 @@ namespace iParaClientService.Domain
         public string TaxNumber { set; get; }
 
         public string TcCertificate { set; get; }
-        public PaymentDetails PaymentDetails { get; set; }
+        public List<PaymentDetails> PaymentDetails { get; set; }
 
         public void SetAmount(double money)
         {

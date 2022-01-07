@@ -50,8 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="iParaPaymentInquiryAdapterTests.cs" />
-    <Compile Include="iParaLinkPaymentListAdapterTests.cs" />
     <Compile Include="iParaLinkPaymentCreateAdapterTests.cs" />
+    <Compile Include="iParaLinkPaymentListAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

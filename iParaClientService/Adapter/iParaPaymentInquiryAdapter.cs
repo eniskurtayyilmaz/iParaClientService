@@ -20,12 +20,12 @@ namespace iParaClientService.Adapter
         public override string AcceptType => HeaderConstant.ApplicationXml;
         public override string GetHashString(iParaPaymentInquiryRequest model)
         {
-            return HashStringBuilderHelpers.GetHashString(iParaClientConnection.PrivateKey, model.OrderId, HeaderHelpers.GetTransactionDateString());
+            return HashStringBuilderHelpers.GetHashString(iParaClientConnection.PrivateKey, model.OrderId, model.Mode, HeaderHelpers.GetTransactionDateString());
         }
 
         public override iParaPaymentInquiryResponse Execute(iParaPaymentInquiryRequest model)
         {
-            //model.Mode = iParaClientConnection.GetMode();
+            model.Mode = iParaClientConnection.GetMode();
             var hashString = this.GetHashString(model);
 
             var header = this.WebHeaderCollection(hashString);

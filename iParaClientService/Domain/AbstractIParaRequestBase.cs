@@ -7,7 +7,7 @@ namespace iParaClientService.Domain
         [XmlElement("echo")]
         public string Echo { get; set; }
 
-        //[XmlElement("mode")]
-        //public string Mode { get; set; }
+        [XmlElement("mode")]
+        public string Mode { get; set; }
     }
 }
