@@ -28,12 +28,12 @@ namespace iParaClientService.Integration.Tests
         }
 
         [TestMethod]
-        [Ignore("Veri bütünlüğü eksik")]
+        //[Ignore("Veri bütünlüğü eksik")]
 
         public void Can_Create_Link_Payment_Valid()
         {
             string baseUrl = "https://api.ipara.com/";
-            iParaConnectionMode mode = iParaConnectionMode.Test;
+            iParaConnectionMode mode = iParaConnectionMode.Production;
             string version = "1.0";
 
             using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
@@ -42,8 +42,8 @@ namespace iParaClientService.Integration.Tests
                 {
 
                     Echo = "",
-                    Mode = "T",
-                    OrderId = "002iCNJFO33A7A1Fsd8fq/HPg=="
+                    Mode = "P",
+                    OrderId = "1b89aca4-5173-47f3-a760-a3c2db6b3f90"
                 };
 
                 var adapter = new iParaPaymentInquiryAdapter(connection);
@@ -57,7 +57,7 @@ namespace iParaClientService.Integration.Tests
 
                 Assert.IsNotNull(result.Result);
                 Assert.IsNotNull(result.ResponseMessage);
-                Assert.AreEqual(10, result.GetAmount());
+                Assert.AreEqual(1, result.GetAmount());
             }
         }
 
