@@ -69,3 +69,6 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
     var result = adapter.Execute(model);
 }
 ````
+
+### Buy me a coffee
+You can [buy me a coffee](https://www.buymeacoffee.com/eniskurtay) if you want to say _thank you_:) 
