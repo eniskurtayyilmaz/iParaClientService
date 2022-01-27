@@ -52,12 +52,15 @@ iParaConnectionMode mode = iParaConnectionMode.Test;
 string version = "1.0";
 using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
 {
+    string linkId = "iParaLinkPaymentCreateResponse.LinkId";
     var model = new iParaLinkPaymentListRequest
     {
-        Gsm = "5397143516",
-		PageSize = 15,
-		PageIndex = 1
-        /// Other required properties, like Email etc
+        PageSize = 15,
+        PageIndex = 1,
+        Email = "kurtayyilmaz@gmail.com",
+        LinkId = linkId, //Optional
+        LinkState = LinkState.LinkPaymentDone //Optional
+        /// Other optional properties, like Email, GSM etc
     };
     var adapter = new iParaLinkPaymentListAdapter(connection);
     var result = adapter.Execute(model);

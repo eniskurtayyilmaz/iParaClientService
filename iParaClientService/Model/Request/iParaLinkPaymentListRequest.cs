@@ -8,6 +8,7 @@ namespace iParaClientService.Model.Request
         public string Email { get; set; }
 
         public string Gsm { get; set; }
+        public string LinkId { get; set; }
 
         public LinkState? LinkState { get; set; }
 
