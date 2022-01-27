@@ -39,9 +39,12 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
         Gsm = "5397143516",
         /// Other required properties, like Email, ClientIp etc.
     };
-	model.SetAmount(10.50); //10,50 TL EURO DOLAR
+    model.SetAmount(10.50); //10,50 TL EURO DOLAR
     var adapter = new iParaLinkPaymentCreateAdapter(connection);
     var result = adapter.Execute(model);
+    
+    //result.Link
+    //https://portal.ipara.com/faces/payment/transaction_link_payment.jsf?linkToken=00224d3V13qW77y5D0DkfRB6w%3D%3D
 }
 ````
 
@@ -52,7 +55,7 @@ iParaConnectionMode mode = iParaConnectionMode.Test;
 string version = "1.0";
 using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
 {
-    string linkId = "iParaLinkPaymentCreateResponse.LinkId";
+    string linkId = "iParaLinkPaymentCreateResponse.LinkPaymentId";
     var model = new iParaLinkPaymentListRequest
     {
         PageSize = 15,
