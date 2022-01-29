@@ -24,6 +24,7 @@ Honestly we had the job about iPara integration. When I check [their github repo
 
 ### Example Create Link Request
 ```csharp
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 string baseUrl = "https://api.ipara.com/";
 iParaConnectionMode mode = iParaConnectionMode.Test;
 string version = "1.0";
@@ -50,6 +51,7 @@ using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey
 
 ### Example Created Link List Request
 ```csharp
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 string baseUrl = "https://api.ipara.com/";
 iParaConnectionMode mode = iParaConnectionMode.Test;
 string version = "1.0";

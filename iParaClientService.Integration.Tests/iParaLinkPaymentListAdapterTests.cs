@@ -117,7 +117,6 @@ namespace iParaClientService.Integration.Tests
                     PageSize = 15,
                     PageIndex = 1,
                     Email = "kurtayyilmaz@gmail.com",
-                    LinkId = linkId,
                     LinkState = LinkState.LinkPaymentDone
                 };
 
