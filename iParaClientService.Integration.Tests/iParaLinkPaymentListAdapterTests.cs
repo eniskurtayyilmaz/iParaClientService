@@ -53,7 +53,12 @@ namespace iParaClientService.Integration.Tests
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
+                Trace.WriteLine(result.ErrorCode);
 
+                if (!result.IsValid)
+                {
+                    Trace.WriteLine(JsonBuilderHelpers.SerializeToJsonString(model));
+                }
                 Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
@@ -89,7 +94,12 @@ namespace iParaClientService.Integration.Tests
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
+                Trace.WriteLine(result.ErrorCode);
 
+                if (!result.IsValid)
+                {
+                    Trace.WriteLine(JsonBuilderHelpers.SerializeToJsonString(model));
+                }
                 Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
@@ -124,7 +134,12 @@ namespace iParaClientService.Integration.Tests
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
+                Trace.WriteLine(result.ErrorCode);
 
+                if (!result.IsValid)
+                {
+                    Trace.WriteLine(JsonBuilderHelpers.SerializeToJsonString(model));
+                }
                 Assert.IsTrue(result.IsValid);
                 Assert.IsNull(result.ErrorCode);
                 Assert.IsNull(result.ErrorMessage);
@@ -163,7 +178,12 @@ namespace iParaClientService.Integration.Tests
                 var result = adapter.Execute(model);
 
                 Trace.WriteLine(result.ErrorMessage);
+                Trace.WriteLine(result.ErrorCode);
 
+                if (!result.IsValid)
+                {
+                    Trace.WriteLine(JsonBuilderHelpers.SerializeToJsonString(model));
+                }
                 Assert.IsFalse(result.IsValid);
                 Assert.IsNotNull(result.ErrorCode);
                 Assert.IsNotNull(result.ErrorMessage);

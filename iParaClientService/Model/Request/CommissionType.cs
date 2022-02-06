@@ -4,15 +4,16 @@ namespace iParaClientService.Model.Request
 {
     public enum CommissionType
     {
-        [Description("Satıcı")]
         /// <summary>
         /// Satıcı
         /// </summary>
+        [Description("Satıcı")]
         Seller = 1,
-        [Description("Alıcı")]
+        
         /// <summary>
-        /// Müşteri
+        /// Müşteri - Alıcı
         /// </summary>
+        [Description("Alıcı")]
         Dealer = 2
     }
 }
