@@ -182,6 +182,7 @@ namespace iParaClientService.Integration.Tests
 
             using (var connection = new iParaClientConnection(baseUrl, publicKey, privateKey, mode, version))
             {
+
                 var model = new iParaLinkPaymentCreateRequest
                 {
                     ThreeD = true,
