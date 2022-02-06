@@ -53,6 +53,7 @@ namespace iParaClientService.Integration.Tests
                 Trace.WriteLine(result.ErrorMessage);
                 Trace.WriteLine(result.ErrorCode);
 
+
                 if (!result.IsValid)
                 {
                     Trace.WriteLine(JsonBuilderHelpers.SerializeToJsonString(model));
