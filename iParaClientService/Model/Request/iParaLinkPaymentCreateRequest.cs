@@ -25,7 +25,7 @@ namespace iParaClientService.Model.Request
 
         public string Gsm { get; set; }
 
-        //public 
+        public string Description { get; set; }
 
         public bool ThreeD { get; set; }
 
@@ -39,6 +39,7 @@ namespace iParaClientService.Model.Request
 
         public int Amount { get; protected set; }
 
+        public List<int> InstallmentList { get; set; }
         public void SetAmount(double money)
         {
             this.Amount = money.SetAmount();
