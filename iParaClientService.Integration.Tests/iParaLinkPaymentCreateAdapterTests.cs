@@ -219,7 +219,7 @@ namespace iParaClientService.Integration.Tests
                     Gsm = "5397143516",
                     InstallmentList = new List<int>()
                     {
-                        2,3,4,5,6,7,8,9,10,11,12
+                        2,3,4,5
                     },
                     Description = "Taksitli satış"
                 };
@@ -344,13 +344,6 @@ namespace iParaClientService.Integration.Tests
                         3,
                         4,
                         5,
-                        6,
-                        7,
-                        8,
-                        9,
-                        10,
-                        11,
-                        12
                     },
                     InstallmentTwoCommissionType = CommissionType.Dealer,
                     InstallmentThreeCommissionType = CommissionType.Dealer,
