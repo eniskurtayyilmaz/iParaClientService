@@ -39,6 +39,18 @@ namespace iParaClientService.Model.Request
 
         public int Amount { get; protected set; }
 
+        public CommissionType? InstallmentTwoCommissionType { get; set; }
+        public CommissionType? InstallmentThreeCommissionType { get; set; }
+        public CommissionType? InstallmentFourCommissionType { get; set; }
+        public CommissionType? InstallmentFiveCommissionType { get; set; }
+        public CommissionType? InstallmentSixCommissionType { get; set; }
+        public CommissionType? InstallmentSevenCommissionType { get; set; }
+        public CommissionType? InstallmentEightCommissionType { get; set; }
+        public CommissionType? InstallmentNineCommissionType { get; set; }
+        public CommissionType? InstallmentTenCommissionType { get; set; }
+        public CommissionType? InstallmentElevenCommissionType { get; set; }
+        public CommissionType? InstallmentTwelveCommissionType { get; set; }
+
         public List<int> InstallmentList { get; set; }
         public void SetAmount(double money)
         {
